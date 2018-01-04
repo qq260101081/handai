@@ -2,17 +2,9 @@
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
-        'urlManager' => [
-        		'class' => 'yii\web\UrlManager',
-        		//'showScriptName' => true,
-        		//'enablePrettyUrl' => true,
-        		    
-        ],
-        
+        //'cache' => [
+        //    'class' => 'yii\caching\FileCache',
+        //],
     ],
-    'language' => 'zh-CN',
-    'timeZone' => 'Asia/Shanghai',
+	'language' => 'zh-CN',
 ];
