@@ -11,7 +11,7 @@ use yii\base\Component;
 use yii\base\Action;
 use yii\web\User;
 use yii\web\Request;
-use yii\web\Controller;
+use yii\base\Controller;
 
 /**
  * This class represents an access rule defined by the [[AccessControl]] action filter
@@ -31,8 +31,8 @@ class AccessRule extends Component
      */
     public $actions;
     /**
-     * @var array list of controller IDs that this rule applies to. The comparison is case-sensitive.
-     * If not set or empty, it means this rule applies to all controllers.
+     * @var array list of the controller IDs that this rule applies to. Each controller ID is prefixed with the module ID (if any).
+     * The comparison is case-sensitive. If not set or empty, it means this rule applies to all controllers.
      */
     public $controllers;
     /**
@@ -42,8 +42,8 @@ class AccessRule extends Component
      * - `?`: matches a guest user (not authenticated yet)
      * - `@`: matches an authenticated user
      *
-     * Using other role names requires RBAC (Role-Based Access Control), and
-     * [[User::can()]] will be called.
+     * If you are using RBAC (Role-Based Access Control), you may also specify role or permission names.
+     * In this case, [[User::can()]] will be called to check access.
      *
      * If this property is not set or empty, it means this rule applies to all roles.
      */
@@ -58,7 +58,6 @@ class AccessRule extends Component
     public $ips;
     /**
      * @var array list of request methods (e.g. `GET`, `POST`) that this rule applies to.
-     * The request methods must be specified in uppercase.
      * If not set or empty, it means this rule applies to all request methods.
      * @see \yii\web\Request::method
      */
@@ -67,9 +66,9 @@ class AccessRule extends Component
      * @var callable a callback that will be called to determine if the rule should be applied.
      * The signature of the callback should be as follows:
      *
-     * ~~~
+     * ```php
      * function ($rule, $action)
-     * ~~~
+     * ```
      *
      * where `$rule` is this rule, and `$action` is the current [[Action|action]] object.
      * The callback should return a boolean value indicating whether this rule should be applied.
@@ -82,9 +81,9 @@ class AccessRule extends Component
      *
      * The signature of the callback should be as follows:
      *
-     * ~~~
+     * ```php
      * function ($rule, $action)
-     * ~~~
+     * ```
      *
      * where `$rule` is this rule, and `$action` is the current [[Action|action]] object.
      */
@@ -176,12 +175,12 @@ class AccessRule extends Component
     }
 
     /**
-     * @param string $verb the request method
+     * @param string $verb the request method.
      * @return boolean whether the rule applies to the request
      */
     protected function matchVerb($verb)
     {
-        return empty($this->verbs) || in_array($verb, $this->verbs, true);
+        return empty($this->verbs) || in_array(strtoupper($verb), array_map('strtoupper', $this->verbs), true);
     }
 
     /**

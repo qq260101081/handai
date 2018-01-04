@@ -48,13 +48,12 @@ abstract class Parser
 	public function parse($text)
 	{
 		$this->prepare();
-		
-		if (empty($text)) {
+
+		if (ltrim($text) === '') {
 			return '';
 		}
 
-		// http://stackoverflow.com/a/18992691/1106908
-		$text = preg_replace('~\R~', "\n", $text);
+		$text = str_replace(["\r\n", "\n\r", "\r"], "\n", $text);
 
 		$this->prepareMarkers($text);
 
@@ -75,12 +74,11 @@ abstract class Parser
 	{
 		$this->prepare();
 
-		if (empty($text)) {
+		if (ltrim($text) === '') {
 			return '';
 		}
 
-		// http://stackoverflow.com/a/18992691/1106908
-		$text = preg_replace('~\R~', "\n", $text);
+		$text = str_replace(["\r\n", "\n\r", "\r"], "\n", $text);
 
 		$this->prepareMarkers($text);
 
@@ -169,7 +167,7 @@ abstract class Parser
 		// convert lines to blocks
 		for ($i = 0, $count = count($lines); $i < $count; $i++) {
 			$line = $lines[$i];
-			if (!empty($line) && rtrim($line) !== '') { // skip empty lines
+			if ($line !== '' && rtrim($line) !== '') { // skip empty lines
 				// identify a blocks beginning
 				$identified = false;
 				foreach($blockTypes as $blockType) {
@@ -321,7 +319,7 @@ abstract class Parser
 	{
 		if ($this->_depth >= $this->maximumNestingLevel) {
 			// maximum depth is reached, do not parse input
-			return ['text', $text];
+			return [['text', $text]];
 		}
 		$this->_depth++;
 

@@ -9,6 +9,7 @@ namespace yii\grid;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
 use yii\db\ActiveQueryInterface;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -50,13 +51,24 @@ class DataColumn extends Column
      */
     public $label;
     /**
-     * @var string|\Closure an anonymous function that returns the value to be displayed for every data model.
-     * The signature of this function is `function ($model, $key, $index, $column)`.
-     * If this is not set, `$model[$attribute]` will be used to obtain the value.
+     * @var boolean whether the header label should be HTML-encoded.
+     * @see label
+     * @since 2.0.1
+     */
+    public $encodeLabel = true;
+    /**
+     * @var string|\Closure an anonymous function or a string that is used to determine the value to display in the current column.
+     *
+     * If this is an anonymous function, it will be called for each row and the return value will be used as the value to
+     * display for every data model. The signature of this function should be: `function ($model, $key, $index, $column)`.
+     * Where `$model`, `$key`, and `$index` refer to the model, key and index of the row currently being rendered
+     * and `$column` is a reference to the [[DataColumn]] object.
      *
      * You may also set this property to a string representing the attribute name to be displayed in this column.
      * This can be used when the attribute to be displayed is different from the [[attribute]] that is used for
      * sorting and filtering.
+     *
+     * If this is not set, `$model[$attribute]` will be used to obtain the value, where `$attribute` is the value of [[attribute]].
      */
     public $value;
     /**
@@ -79,7 +91,7 @@ class DataColumn extends Column
      */
     public $sortLinkOptions = [];
     /**
-     * @var string|array|boolean the HTML code representing a filter input (e.g. a text field, a dropdown list)
+     * @var string|array|null|false the HTML code representing a filter input (e.g. a text field, a dropdown list)
      * that is used for this data column. This property is effective only when [[GridView::filterModel]] is set.
      *
      * - If this property is not set, a text field will be generated as the filter input;
@@ -106,6 +118,25 @@ class DataColumn extends Column
             return parent::renderHeaderCellContent();
         }
 
+        $label = $this->getHeaderCellLabel();
+        if ($this->encodeLabel) {
+            $label = Html::encode($label);
+        }
+
+        if ($this->attribute !== null && $this->enableSorting &&
+            ($sort = $this->grid->dataProvider->getSort()) !== false && $sort->hasAttribute($this->attribute)) {
+            return $sort->link($this->attribute, array_merge($this->sortLinkOptions, ['label' => $label]));
+        } else {
+            return $label;
+        }
+    }
+
+    /**
+     * @inheritdoc
+     * @since 2.0.8
+     */
+    protected function getHeaderCellLabel()
+    {
         $provider = $this->grid->dataProvider;
 
         if ($this->label === null) {
@@ -113,6 +144,12 @@ class DataColumn extends Column
                 /* @var $model Model */
                 $model = new $provider->query->modelClass;
                 $label = $model->getAttributeLabel($this->attribute);
+            } elseif ($provider instanceof ArrayDataProvider && $provider->modelClass !== null) {
+                /* @var $model Model */
+                $model = new $provider->modelClass;
+                $label = $model->getAttributeLabel($this->attribute);
+            } elseif ($this->grid->filterModel !== null && $this->grid->filterModel instanceof Model) {
+                $label = $this->grid->filterModel->getAttributeLabel($this->attribute);
             } else {
                 $models = $provider->getModels();
                 if (($model = reset($models)) instanceof Model) {
@@ -126,12 +163,7 @@ class DataColumn extends Column
             $label = $this->label;
         }
 
-        if ($this->attribute !== null && $this->enableSorting &&
-            ($sort = $provider->getSort()) !== false && $sort->hasAttribute($this->attribute)) {
-            return $sort->link($this->attribute, array_merge($this->sortLinkOptions, ['label' => Html::encode($label)]));
-        } else {
-            return Html::encode($label);
-        }
+        return $label;
     }
 
     /**
@@ -148,15 +180,15 @@ class DataColumn extends Column
         if ($this->filter !== false && $model instanceof Model && $this->attribute !== null && $model->isAttributeActive($this->attribute)) {
             if ($model->hasErrors($this->attribute)) {
                 Html::addCssClass($this->filterOptions, 'has-error');
-                $error = Html::error($model, $this->attribute, $this->grid->filterErrorOptions);
+                $error = ' ' . Html::error($model, $this->attribute, $this->grid->filterErrorOptions);
             } else {
                 $error = '';
             }
             if (is_array($this->filter)) {
                 $options = array_merge(['prompt' => ''], $this->filterInputOptions);
-                return Html::activeDropDownList($model, $this->attribute, $this->filter, $options) . ' ' . $error;
+                return Html::activeDropDownList($model, $this->attribute, $this->filter, $options) . $error;
             } else {
-                return Html::activeTextInput($model, $this->attribute, $this->filterInputOptions) . ' ' . $error;
+                return Html::activeTextInput($model, $this->attribute, $this->filterInputOptions) . $error;
             }
         } else {
             return parent::renderFilterCellContent();
