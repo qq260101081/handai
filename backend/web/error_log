@@ -1,0 +1,177 @@
+[24-Dec-2014 13:43:58 UTC] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "site/error".' in /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/ErrorHandler.php(79): yii\base\Module->runAction('site/error')
+#1 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#2 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#3 {main}
+Previous exception:
+exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('single', Array)
+#2 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('single/single', Array)
+#3 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /home/p22/public_html/komeis.com/backend/web/index.php(18): yii\base\Application->run()
+#5 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '1562',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/p22/public_html/komeis.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/p22/public_html/komeis.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => 'bdshare_firstime=1419343833905; _csrf=47dc096ad645b10c86ae09f6fb8346c52f4ee01021265bfa233ff860ca7240fes%3A32%3A%22fIkwteqdYH3N0OXcghsyzGNFc8KMuXUr%22%3B; PHPSESSID=13e58e8f919928667af8307e4d0c207b',
+    'HTTP_HOST' => 'komeis.com',
+    'HTTP_REFERER' => 'http://komeis.com/backend/web/index.php/single/single?type=3',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_INFO' => '/single/single',
+    'PATH_TRANSLATED' => '/home/p22/public_html/komeis.com/backend/web/index.php',
+    'QUERY_STRING' => 'type=3',
+    'REDIRECT_STATUS' => '200',
+    'REMOTE_ADDR' => '223.73.59.243',
+    'REMOTE_PORT' => '10576',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/backend/web/index.php/single/single?type=3',
+    'SCRIPT_FILENAME' => '/home/p22/public_html/komeis.com/backend/web/index.php',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'SERVER_ADDR' => '58.64.141.52',
+    'SERVER_ADMIN' => 'webmaster@komeis.52ouni.com',
+    'SERVER_NAME' => 'komeis.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'VJrDHjpAjTQAACGv2fcAAAAP',
+    'PHP_SELF' => '/backend/web/index.php/single/single',
+    'REQUEST_TIME_FLOAT' => 1419428638.6381371021270751953125,
+    'REQUEST_TIME' => 1419428638,
+    'argv' => [
+        'type=3',
+    ],
+    'argc' => 1,
+]
+[24-Dec-2014 13:44:08 UTC] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "site/error".' in /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/ErrorHandler.php(79): yii\base\Module->runAction('site/error')
+#1 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#2 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#3 {main}
+Previous exception:
+exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('single', Array)
+#2 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('single/single', Array)
+#3 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /home/p22/public_html/komeis.com/backend/web/index.php(18): yii\base\Application->run()
+#5 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '1562',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/p22/public_html/komeis.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/p22/public_html/komeis.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => 'bdshare_firstime=1419343833905; _csrf=47dc096ad645b10c86ae09f6fb8346c52f4ee01021265bfa233ff860ca7240fes%3A32%3A%22fIkwteqdYH3N0OXcghsyzGNFc8KMuXUr%22%3B; PHPSESSID=13e58e8f919928667af8307e4d0c207b',
+    'HTTP_HOST' => 'komeis.com',
+    'HTTP_REFERER' => 'http://komeis.com/backend/web/index.php/single/single?type=3',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_INFO' => '/single/single',
+    'PATH_TRANSLATED' => '/home/p22/public_html/komeis.com/backend/web/index.php',
+    'QUERY_STRING' => 'type=3',
+    'REDIRECT_STATUS' => '200',
+    'REMOTE_ADDR' => '223.73.59.243',
+    'REMOTE_PORT' => '54140',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/backend/web/index.php/single/single?type=3',
+    'SCRIPT_FILENAME' => '/home/p22/public_html/komeis.com/backend/web/index.php',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'SERVER_ADDR' => '58.64.141.52',
+    'SERVER_ADMIN' => 'webmaster@komeis.52ouni.com',
+    'SERVER_NAME' => 'komeis.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'VJrDJzpAjTQAACFu09sAAAAL',
+    'PHP_SELF' => '/backend/web/index.php/single/single',
+    'REQUEST_TIME_FLOAT' => 1419428648.0136730670928955078125,
+    'REQUEST_TIME' => 1419428648,
+    'argv' => [
+        'type=3',
+    ],
+    'argc' => 1,
+]
+[24-Dec-2014 13:45:39 UTC] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "site/error".' in /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/ErrorHandler.php(79): yii\base\Module->runAction('site/error')
+#1 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#2 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#3 {main}
+Previous exception:
+exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('single', Array)
+#2 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('single/single', Array)
+#3 /home/p22/public_html/komeis.com/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /home/p22/public_html/komeis.com/backend/web/index.php(18): yii\base\Application->run()
+#5 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '2028',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/p22/public_html/komeis.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/p22/public_html/komeis.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => 'bdshare_firstime=1419343833905; _csrf=365a5311a22576792f01e2c4bf3fe09ac5b7d92cd0ebf6288041cb2f9014cf72s%3A32%3A%22XeuuE7fLvO8F1X55bviV0vw2rl_76MHB%22%3B; PHPSESSID=13e58e8f919928667af8307e4d0c207b',
+    'HTTP_HOST' => 'komeis.com',
+    'HTTP_REFERER' => 'http://komeis.com/backend/web/index.php/single/single?type=3',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_INFO' => '/single/single',
+    'PATH_TRANSLATED' => '/home/p22/public_html/komeis.com/backend/web/index.php',
+    'QUERY_STRING' => 'type=3',
+    'REDIRECT_STATUS' => '200',
+    'REMOTE_ADDR' => '223.73.59.243',
+    'REMOTE_PORT' => '57691',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/backend/web/index.php/single/single?type=3',
+    'SCRIPT_FILENAME' => '/home/p22/public_html/komeis.com/backend/web/index.php',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'SERVER_ADDR' => '58.64.141.52',
+    'SERVER_ADMIN' => 'webmaster@komeis.52ouni.com',
+    'SERVER_NAME' => 'komeis.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'VJrDgzpAjTQAACFu0@MAAAAL',
+    'PHP_SELF' => '/backend/web/index.php/single/single',
+    'REQUEST_TIME_FLOAT' => 1419428739.4345710277557373046875,
+    'REQUEST_TIME' => 1419428739,
+    'argv' => [
+        'type=3',
+    ],
+    'argc' => 1,
+]
+[27-Jan-2015 12:57:30 UTC] PHP Fatal error:  Class 'backend\controllers\News' not found in /home/p22/public_html/backend/controllers/LinksController.php on line 66
+[27-Jan-2015 13:02:58 UTC] PHP Fatal error:  Class 'backend\controllers\HttpException' not found in /home/p22/public_html/backend/controllers/LinksController.php on line 52
